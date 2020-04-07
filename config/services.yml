@@ -1,0 +1,5 @@
+services:
+    phpbbstudio.eva.listener:
+        class: phpbbstudio\eva\event\main
+        tags:
+            - { name: event.listener }

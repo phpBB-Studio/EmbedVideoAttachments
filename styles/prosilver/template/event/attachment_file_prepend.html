@@ -1,0 +1,35 @@
+		{% if _file.S_VIDEO %}
+
+			{% if not definition.INCLUDED_EVACSS %}
+				{% INCLUDECSS '@phpbbstudio_eva/eva.css' %}
+				{% DEFINE INCLUDED_EVACSS = true %}
+			{% endif %}
+
+			<dl class="file">
+				<dt>
+					<video src="{{ _file.URL }}" type="{{ _file.MIMETYPE }}" class="eva-video" controls preload="none"></video>
+				</dt>
+
+				<dt>
+					{% if _file.UPLOAD_ICON %}
+						{{ _file.UPLOAD_ICON }}
+					{% endif %}
+
+					<a class="button button-icon-only" href="{{ _file.U_DOWNLOAD_LINK }}" title="{{ _file.DOWNLOAD_NAME }}">
+						<i class="icon fa-hand-o-down fa-fw" aria-hidden="true"></i>
+					</a>
+					{{ _file.DOWNLOAD_NAME }}
+				</dt>
+
+				<dd>
+					({{ _file.FILESIZE }} {{ _file.SIZE_LANG }}) {{ _file.L_DOWNLOAD_COUNT }}
+				</dd>
+
+				{% if _file.COMMENT %}
+					<br>
+					<dd>
+						<em>{{ _file.COMMENT }}</em>
+					</dd>
+				{% endif %}
+			</dl>
+		{% endif %}
